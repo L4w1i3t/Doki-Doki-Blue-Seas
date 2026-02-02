@@ -1,0 +1,49 @@
+@use 'variables' as *;
+
+// Footer Styles
+.site-footer {
+    background: $black;
+    color: $text-light;
+    padding: 40px 0 20px;
+}
+
+.footer-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer-content {
+    margin-bottom: 25px;
+}
+
+.footer-disclaimer {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    opacity: 0.85;
+}
+
+.footer-ddlc-link {
+    font-size: 0.9rem;
+    opacity: 0.85;
+
+    a {
+        color: $sapphire-accent;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.footer-copyright {
+    border-top: 1px solid rgba($white, 0.1);
+    padding-top: 20px;
+
+    p {
+        font-size: 0.85rem;
+        opacity: 0.7;
+    }
+}

@@ -1,0 +1,105 @@
+@use 'variables' as *;
+
+// Flexbox Center
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Flexbox Between
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// Absolute Fill
+@mixin absolute-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+// Section Title Underline
+@mixin title-underline($color1: $sapphire-primary, $color2: $sapphire-accent) {
+    &::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, $color1, $color2);
+        margin: 15px auto 0;
+        border-radius: 2px;
+    }
+}
+
+// Button Base
+@mixin button-base {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 35px;
+    border-radius: $radius-full;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all $transition-fast;
+    cursor: pointer;
+    border: none;
+}
+
+// Card Base
+@mixin card-base {
+    background: $white;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+    transition: transform $transition-fast, box-shadow $transition-fast;
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba($sapphire-primary, 0.2);
+    }
+}
+
+// Gradient Overlay
+@mixin gradient-overlay($opacity1: 0.7, $opacity2: 0.5, $opacity3: 0.8) {
+    background: linear-gradient(
+        to bottom,
+        rgba($sapphire-dark, $opacity1) 0%,
+        rgba($sapphire-primary, $opacity2) 50%,
+        rgba($black, $opacity3) 100%
+    );
+}
+
+// Glass Effect
+@mixin glass-effect {
+    background: rgba($white, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba($white, 0.2);
+}
+
+// Responsive Font Size
+@mixin responsive-title($desktop: 3.5rem, $mobile-size: 2.5rem) {
+    font-size: $desktop;
+    
+    @media (max-width: $mobile) {
+        font-size: $mobile-size;
+    }
+}
+
+// Mobile Only
+@mixin mobile-only {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+// Tablet and Up
+@mixin tablet-up {
+    @media (min-width: ($mobile + 1)) {
+        @content;
+    }
+}

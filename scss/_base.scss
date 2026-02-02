@@ -1,0 +1,68 @@
+@use 'variables' as *;
+
+// Reset and Base
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-primary;
+    font-size: 16px;
+    line-height: 1.6;
+    color: $text-dark;
+    background-color: $off-white;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color $transition-fast;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: $section-padding 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $sapphire-primary;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, $sapphire-primary, $sapphire-accent);
+        margin: 15px auto 0;
+        border-radius: 2px;
+    }
+}

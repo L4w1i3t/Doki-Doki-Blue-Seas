@@ -1,0 +1,224 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Mini Mod Page Styles (shared across all mini mod pages)
+.minimod-page {
+    .minimod-hero {
+        position: relative;
+        min-height: 100vh;
+        @include flex-center;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 100px 20px;
+    }
+
+    .minimod-overlay {
+        @include absolute-fill;
+        background: linear-gradient(
+            135deg,
+            rgba($sapphire-dark, 0.85) 0%,
+            rgba($sapphire-primary, 0.7) 50%,
+            rgba($black, 0.9) 100%
+        );
+    }
+
+    .minimod-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .minimod-title {
+        @include responsive-title(3rem, 2.2rem);
+        font-weight: 700;
+        color: $white;
+        text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
+        margin-bottom: 40px;
+    }
+
+    .minimod-quote {
+        @include glass-effect;
+        border-radius: $radius-xl;
+        padding: 35px 45px;
+        margin-bottom: 40px;
+
+        @include mobile-only {
+            padding: 25px 20px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: $white;
+            line-height: 1.8;
+            margin-bottom: 15px;
+
+            @include mobile-only {
+                font-size: 1.1rem;
+            }
+        }
+
+        cite {
+            display: block;
+            font-size: 1rem;
+            color: $white;
+            font-style: normal;
+            font-weight: 500;
+            opacity: 0.9;
+
+            @include mobile-only {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .minimod-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .download-btn {
+        @include button-base;
+        background: linear-gradient(135deg, $sapphire-primary, $sapphire-accent);
+        color: $white;
+        padding: 18px 45px;
+        font-size: 1.2rem;
+        box-shadow: $shadow-sapphire;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba($sapphire-primary, 0.5);
+        }
+    }
+
+    .download-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+// Back Section
+.back-section {
+    background: $off-white;
+    padding: 30px 0;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: $sapphire-primary;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all $transition-fast;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        transition: transform $transition-fast;
+    }
+
+    &:hover {
+        color: $sapphire-accent;
+
+        svg {
+            transform: translateX(-5px);
+        }
+    }
+}
+
+// Yandere Doki Page - Darker, more intense theme
+.yandere-page {
+    .minimod-hero {
+        background-image: url('../assets/images/yanderedoki.jpg');
+    }
+
+    .minimod-overlay {
+        background: linear-gradient(
+            135deg,
+            rgba(#1a0a0a, 0.9) 0%,
+            rgba(#3d0a0a, 0.8) 50%,
+            rgba($black, 0.95) 100%
+        );
+    }
+
+    .minimod-quote {
+        background: rgba(#500, 0.2);
+        border-color: rgba(#f55, 0.3);
+    }
+
+    .download-btn {
+        background: linear-gradient(135deg, #8b0000, #cc0000);
+        box-shadow: 0 10px 30px rgba(#8b0000, 0.4);
+
+        &:hover {
+            box-shadow: 0 15px 40px rgba(#cc0000, 0.5);
+        }
+    }
+}
+
+// Thanksgiving Page - Warm autumn theme
+.thanksgiving-page {
+    .minimod-hero {
+        background-image: url('../assets/images/thanksgiving.jpg');
+    }
+
+    .minimod-overlay {
+        background: linear-gradient(
+            135deg,
+            rgba(#4a2c0a, 0.85) 0%,
+            rgba(#8b4513, 0.7) 50%,
+            rgba(#1a0f05, 0.9) 100%
+        );
+    }
+
+    .minimod-quote {
+        background: rgba(#d2691e, 0.15);
+        border-color: rgba(#daa520, 0.3);
+    }
+
+    .download-btn {
+        background: linear-gradient(135deg, #8b4513, #d2691e);
+        box-shadow: 0 10px 30px rgba(#8b4513, 0.4);
+
+        &:hover {
+            box-shadow: 0 15px 40px rgba(#d2691e, 0.5);
+        }
+    }
+}
+
+// Christmas Page - Festive red and green theme
+.christmas-page {
+    .minimod-hero {
+        background-image: url('../assets/images/xmasadventures.jpg');
+    }
+
+    .minimod-overlay {
+        background: linear-gradient(
+            135deg,
+            rgba(#0a1a0a, 0.85) 0%,
+            rgba(#1a3d1a, 0.7) 50%,
+            rgba(#0a0a0a, 0.9) 100%
+        );
+    }
+
+    .minimod-quote {
+        background: rgba(#228b22, 0.15);
+        border-color: rgba(#ff4444, 0.3);
+    }
+
+    .download-btn {
+        background: linear-gradient(135deg, #b22222, #cc0000);
+        box-shadow: 0 10px 30px rgba(#b22222, 0.4);
+
+        &:hover {
+            box-shadow: 0 15px 40px rgba(#cc0000, 0.5);
+        }
+    }
+}

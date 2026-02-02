@@ -1,0 +1,223 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Demo Page Styles
+.demo-page {
+    .demo-hero {
+        position: relative;
+        min-height: 100vh;
+        @include flex-center;
+        background-image: url('../assets/images/blueseascover.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 100px 20px;
+    }
+
+    .demo-overlay {
+        @include absolute-fill;
+        background: linear-gradient(
+            135deg,
+            rgba($sapphire-dark, 0.85) 0%,
+            rgba($sapphire-primary, 0.7) 50%,
+            rgba($black, 0.9) 100%
+        );
+    }
+
+    .demo-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .demo-title {
+        @include responsive-title;
+        font-weight: 700;
+        color: $white;
+        text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
+        margin-bottom: 50px;
+
+        @include mobile-only {
+            margin-bottom: 30px;
+        }
+    }
+
+    .demo-quote {
+        @include glass-effect;
+        border-radius: $radius-xl;
+        padding: 40px 50px;
+        margin-bottom: 50px;
+
+        @include mobile-only {
+            padding: 25px 20px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: $white;
+            line-height: 1.8;
+            margin-bottom: 20px;
+
+            @include mobile-only {
+                font-size: 1.15rem;
+            }
+        }
+
+        cite {
+            display: block;
+            font-size: 1rem;
+            color: $white;
+            font-style: normal;
+            font-weight: 500;
+
+            @include mobile-only {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .demo-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .download-btn {
+        @include button-base;
+        background: linear-gradient(135deg, $sapphire-primary, $sapphire-accent);
+        color: $white;
+        padding: 18px 45px;
+        font-size: 1.2rem;
+        box-shadow: $shadow-sapphire;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba($sapphire-primary, 0.5);
+        }
+    }
+
+    .download-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .demo-version {
+        color: rgba($white, 0.7);
+        font-size: 0.9rem;
+    }
+}
+
+// Demo Info Section
+.demo-info {
+    background: $white;
+}
+
+.demo-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: $off-white;
+    border-radius: $radius-lg;
+    padding: 35px 25px;
+    text-align: center;
+    transition: transform $transition-fast, box-shadow $transition-fast;
+    border: 1px solid $light-gray;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba($sapphire-primary, 0.15);
+    }
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, $sapphire-primary, $sapphire-accent);
+    border-radius: 50%;
+    @include flex-center;
+
+    svg {
+        width: 28px;
+        height: 28px;
+        color: $white;
+    }
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    color: $sapphire-primary;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: $dark-gray;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+// Requirements Section
+.requirements {
+    background: linear-gradient(135deg, $off-white, $light-gray);
+}
+
+.requirements-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+
+    > p {
+        font-size: 1.1rem;
+        color: $dark-gray;
+        margin-bottom: 25px;
+    }
+}
+
+.requirements-list {
+    text-align: left;
+    background: $white;
+    border-radius: $radius-md;
+    padding: 30px 40px;
+    box-shadow: $shadow-sm;
+
+    li {
+        position: relative;
+        padding: 12px 0 12px 30px;
+        color: $text-dark;
+        font-size: 1rem;
+        border-bottom: 1px solid $light-gray;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: $sapphire-accent;
+            border-radius: 50%;
+        }
+
+        a {
+            color: $sapphire-primary;
+            font-weight: 500;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
