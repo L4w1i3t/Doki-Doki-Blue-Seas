@@ -1,6 +1,6 @@
 {
   "name": "doki-doki-blue-seas",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "description": "Website for the DDLC mod \"The Blue Seas\".",
   "scripts": {
     "sass": "sass --watch scss:css --style compressed",
