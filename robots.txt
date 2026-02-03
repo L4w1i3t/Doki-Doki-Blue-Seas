@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /components/
+Disallow: /scss/
+Disallow: /*.bat$
+Disallow: /package.json
+Disallow: /notes.txt
+# Sitemap: https://yourdomain.com/sitemap.xml
+Crawl-delay: 1
