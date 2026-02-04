@@ -114,7 +114,7 @@
 
 // Demo Info Section
 .demo-info {
-    background: $white;
+    background: var(--bg-secondary);
 }
 
 .demo-features {
@@ -124,12 +124,12 @@
 }
 
 .feature-card {
-    background: $off-white;
+    background: var(--bg-primary);
     border-radius: $radius-lg;
     padding: 35px 25px;
     text-align: center;
-    transition: transform $transition-fast, box-shadow $transition-fast;
-    border: 1px solid $light-gray;
+    transition: transform $transition-fast, box-shadow $transition-fast, background-color 0.3s ease;
+    border: 1px solid var(--border-color);
 
     &:hover {
         transform: translateY(-5px);
@@ -159,14 +159,14 @@
 }
 
 .feature-card p {
-    color: $dark-gray;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.7;
 }
 
 // Requirements Section
 .requirements {
-    background: linear-gradient(135deg, $off-white, $light-gray);
+    background: var(--section-alt-bg);
 }
 
 .requirements-content {
@@ -176,24 +176,25 @@
 
     > p {
         font-size: 1.1rem;
-        color: $dark-gray;
+        color: var(--text-secondary);
         margin-bottom: 25px;
     }
 }
 
 .requirements-list {
     text-align: left;
-    background: $white;
+    background: var(--card-bg);
     border-radius: $radius-md;
     padding: 30px 40px;
-    box-shadow: $shadow-sm;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    transition: background-color 0.3s ease;
 
     li {
         position: relative;
         padding: 12px 0 12px 30px;
-        color: $text-dark;
+        color: var(--text-primary);
         font-size: 1rem;
-        border-bottom: 1px solid $light-gray;
+        border-bottom: 1px solid var(--border-color);
 
         &:last-child {
             border-bottom: none;

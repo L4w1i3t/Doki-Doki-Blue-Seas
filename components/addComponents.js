@@ -1,5 +1,18 @@
 // adds the header and footer dynamically to each page without hardcoding
 
+// Initialize theme before DOM loads to prevent flash
+(function () {
+  const savedTheme = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  // Apply saved theme, or system preference if no saved theme
+  if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  } else if (savedTheme === "light") {
+    document.documentElement.removeAttribute("data-theme");
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", function () {
   // Determine if we're in a subdirectory and handle both development and production paths
   const path = window.location.pathname;
@@ -17,6 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Initialize mobile menu after header is loaded
         initMobileMenu();
+
+        // Initialize theme toggle
+        initThemeToggle();
 
         // Fix navigation links
         fixNavigationLinks();
@@ -51,6 +67,28 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => console.error("Error loading footer:", error));
   }
 });
+
+// Function to handle theme toggle
+function initThemeToggle() {
+  const themeToggle = document.getElementById("theme-toggle");
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+
+      if (currentTheme === "dark") {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("theme", "light");
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+  }
+}
 
 // Function to handle hamburger menu toggle
 function initMobileMenu() {

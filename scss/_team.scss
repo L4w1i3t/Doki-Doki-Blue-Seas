@@ -54,7 +54,7 @@
 
 // Team Members Section
 .team-members {
-    background: linear-gradient(180deg, $off-white 0%, $white 100%);
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     padding-bottom: 100px;
 }
 
@@ -105,13 +105,13 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        color: $text-dark;
+        color: var(--text-primary);
         font-size: 1.1rem;
         font-weight: 500;
         padding: 8px 18px;
         border-radius: $radius-full;
-        background: $white;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        background: var(--card-bg);
+        box-shadow: 0 2px 8px var(--shadow-color);
         transition: all $transition-fast;
         border: 2px solid transparent;
         position: relative;
@@ -138,10 +138,10 @@
             }
 
             &:hover {
-                color: $text-dark;
+                color: var(--text-primary);
                 border-color: transparent;
                 transform: none;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                box-shadow: 0 2px 8px var(--shadow-color);
             }
         }
 
@@ -155,8 +155,8 @@
     display: inline-block;
     margin-left: 8px;
     padding: 2px 8px;
-    background: $light-gray;
-    color: $dark-gray;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
     font-size: 0.7rem;
     font-weight: 600;
     border-radius: $radius-full;
@@ -169,7 +169,7 @@
 .special-thanks {
     margin-top: 60px;
     padding-top: 50px;
-    border-top: 2px solid $light-gray;
+    border-top: 2px solid var(--border-color);
 
     .category-title {
         color: $sapphire-accent;
@@ -183,7 +183,7 @@
         background: linear-gradient(135deg, rgba($sapphire-primary, 0.05), rgba($sapphire-accent, 0.08));
 
         &:hover {
-            background: $white;
+            background: var(--card-bg);
         }
     }
 }

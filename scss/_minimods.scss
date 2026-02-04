@@ -105,8 +105,9 @@
 
 // Back Section
 .back-section {
-    background: $off-white;
+    background: var(--bg-primary);
     padding: 30px 0;
+    transition: background-color 0.3s ease;
 }
 
 .back-link {

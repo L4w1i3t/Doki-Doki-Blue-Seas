@@ -75,7 +75,7 @@
 
 // About Section
 .about {
-    background: $white;
+    background: var(--bg-secondary);
 }
 
 .about-content {
@@ -85,7 +85,7 @@
 
     p {
         font-size: 1.1rem;
-        color: $dark-gray;
+        color: var(--text-secondary);
         margin-bottom: 20px;
         line-height: 1.8;
 
@@ -97,7 +97,7 @@
 
 // Mini Mods Section
 .mini-mods {
-    background: linear-gradient(135deg, $off-white, $light-gray);
+    background: var(--section-alt-bg);
 }
 
 .mods-grid {
@@ -109,6 +109,7 @@
 .mod-card {
     @include card-base;
     display: block;
+    background: var(--card-bg);
 }
 
 .mod-image {
@@ -137,7 +138,7 @@
     }
 
     p {
-        color: $dark-gray;
+        color: var(--text-secondary);
         font-size: 0.95rem;
     }
 }
@@ -183,8 +184,12 @@
 
 // Disclaimer Section
 .disclaimer {
-    background: $dark-gray;
+    background: var(--bg-tertiary);
     padding: 40px 0;
+
+    [data-theme="dark"] & {
+        background: $dm-bg-tertiary;
+    }
 }
 
 .disclaimer-box {
@@ -192,7 +197,7 @@
 }
 
 .disclaimer-text {
-    color: $text-light;
+    color: var(--text-secondary);
     font-size: 1rem;
     font-style: italic;
     opacity: 0.9;

@@ -1,5 +1,30 @@
 @use 'variables' as *;
 
+// CSS Custom Properties for Theme Support
+:root {
+    --bg-primary: #{$off-white};
+    --bg-secondary: #{$white};
+    --bg-tertiary: #{$light-gray};
+    --text-primary: #{$text-dark};
+    --text-secondary: #{$dark-gray};
+    --border-color: #{$light-gray};
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --card-bg: #{$white};
+    --section-alt-bg: linear-gradient(135deg, #{$off-white}, #{$light-gray});
+}
+
+[data-theme="dark"] {
+    --bg-primary: #{$dm-bg-primary};
+    --bg-secondary: #{$dm-bg-secondary};
+    --bg-tertiary: #{$dm-bg-tertiary};
+    --text-primary: #{$dm-text-primary};
+    --text-secondary: #{$dm-text-secondary};
+    --border-color: #{$dm-border};
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --card-bg: #{$dm-bg-secondary};
+    --section-alt-bg: linear-gradient(135deg, #{$dm-bg-secondary}, #{$dm-bg-tertiary});
+}
+
 // Reset and Base
 *,
 *::before,
@@ -17,9 +42,10 @@ body {
     font-family: $font-primary;
     font-size: 16px;
     line-height: 1.6;
-    color: $text-dark;
-    background-color: $off-white;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {

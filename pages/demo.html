@@ -6,6 +6,17 @@
     <title>Demo | Doki Doki: The Blue Seas</title>
     <link rel="icon" type="image/png" href="../assets/favicon.ico" />
     <link rel="stylesheet" href="../css/main.css" />
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
